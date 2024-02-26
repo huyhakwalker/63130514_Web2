@@ -13,7 +13,7 @@
 
         // Kiểm tra tên đăng nhập và mật khẩu
         if (username.equals("ABC") && password.equals("MNK")) {
-            response.sendRedirect("UserProfile.html");
+            response.sendRedirect("Index.html");
         } else {
             response.sendRedirect("Login.html");
         }
