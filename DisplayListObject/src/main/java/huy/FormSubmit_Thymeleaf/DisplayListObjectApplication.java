@@ -1,4 +1,4 @@
-package huy.DisplayListObject;
+package huy.FormSubmit_Thymeleaf;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

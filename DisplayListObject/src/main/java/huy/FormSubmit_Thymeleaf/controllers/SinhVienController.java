@@ -1,4 +1,4 @@
-package huy.DisplayListObject.controlllers;
+package huy.FormSubmit_Thymeleaf.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,13 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import huy.DisplayListObject.models.SinhVien;
-
-
+import huy.FormSubmit_Thymeleaf.models.SinhVien;
 
 @Controller
 public class SinhVienController {
-	// Ta hard-code dữ liệu tại đây  để tiện demo------ 
 	static List<SinhVien> dsSinhVien=  new ArrayList<SinhVien>();
 	static {
 			dsSinhVien.add(new SinhVien("0001", "Mai Cường Thọ"));

@@ -1,4 +1,4 @@
-package huy.DisplayListObject.models;
+package huy.FormSubmit_Thymeleaf.models;
 
 public class SinhVien {
 	private String maSoSV;
