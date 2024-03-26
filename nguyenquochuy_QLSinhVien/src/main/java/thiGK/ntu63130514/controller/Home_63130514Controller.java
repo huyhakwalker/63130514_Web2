@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import thiGK.ntu63130514.models.SinhVien;
@@ -34,10 +35,15 @@ public class Home_63130514Controller {
     public String hienThiFormThemSinhVien() {
         return "form-them-sinh-vien";
     }
-	@GetMapping("/tim-kiem")
-    public String timKiemSinhVien(@RequestParam("maSoSV") String maSoSV, ModelMap model) {
-        SinhVien sinhVien = searchService.searchSinhVienById(maSoSV);
-        model.addAttribute("sinhVien", sinhVien);
-        return "ket-qua-tim-kiem";
+
+	@PostMapping("/sinhvien/timkiem")
+    public String searchSinhVienById(@RequestParam("maSinhVien") String maSinhVien, ModelMap model) {
+        SinhVien sinhVien = sinhvienService.findSinhVienById(maSinhVien);
+        if (sinhVien != null) {
+            model.addAttribute("ketQuaTimKiem", sinhVien);
+        } else {
+            model.addAttribute("thongBao", "Không tìm thấy sinh viên với mã: " + maSinhVien);
+        }
+        return "ketquatiemkiem";
     }
 }
