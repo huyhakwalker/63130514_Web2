@@ -3,6 +3,7 @@ package thiGK.ntu63130514.models;
 public class SinhVien {
 	private String maSoSV;
 	private String hoVaTen;
+	
 	public String getMaSoSV() {
 		return maSoSV;
 	}

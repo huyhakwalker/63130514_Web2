@@ -11,7 +11,6 @@ public class timkiemSinhVien {
 	@Autowired
     private SinhVienService dsSinhVien;
 
-    // Tìm kiếm thông tin sản phẩm theo mã
     public SinhVien searchSinhVienById(String maSinhVien) {
         return dsSinhVien.findSinhVienById(maSinhVien);
     }

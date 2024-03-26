@@ -25,9 +25,7 @@ public class Home_63130514Controller {
 	
 	@GetMapping("/danh-sach-sinh-vien")
     public String danhSachSinhVien(ModelMap model) {
-        // Lấy danh sách sinh viên từ service
         List<SinhVien> danhSachSinhVien = sinhvienService.getAllSinhvien();
-        // Đưa danh sách sinh viên vào model để hiển thị trên view
         model.addAttribute("danhSachSinhVien", danhSachSinhVien);
         return "danh-sach-sinh-vien";
     }
@@ -38,8 +36,8 @@ public class Home_63130514Controller {
     }
 
     @PostMapping("/luu-sinh-vien")
-    public String luuSinhVien(@RequestParam String maSoSV, @RequestParam String hoVaTen) {
-        SinhVien sinhVien = new SinhVien(maSoSV, hoVaTen);
+    public String luuSinhVien(@RequestParam String maSoSV, @RequestParam String hoVaTen, @RequestParam String diemTL) {
+        SinhVien sinhVien = new SinhVien(maSoSV, hoVaTen, diemTL);
         sinhvienService.themSinhVien(sinhVien);
         return "redirect:/them-sinh-vien?success=true";
     }

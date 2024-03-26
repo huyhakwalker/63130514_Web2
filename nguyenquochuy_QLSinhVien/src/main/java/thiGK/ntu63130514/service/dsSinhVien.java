@@ -13,7 +13,6 @@ public class dsSinhVien {
 	@Autowired
     private SinhVienService sinhVienService;
 
-    // Trả về toàn bộ dữ liệu đã hard-code (danh sách sản phẩm)
     public List<SinhVien> getAllData() {
         return sinhVienService.getAllSinhvien();
     }

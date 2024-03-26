@@ -10,7 +10,6 @@ public class themSinhVien {
 	@Autowired
     private SinhVienService sinhVienService;
 
-    // Thêm mới một sản phẩm vào danh sách
     public void themSinhVienMoi(SinhVien sv) {
     	sinhVienService.themSinhVien(sv);
     }
