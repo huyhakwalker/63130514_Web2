@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Head content -->
+    <!-- Đầu trang -->
 </head>
 <body>
-    <!-- Navbar Bootstrap và các thành phần khác -->
-    <!-- Form thêm mới sinh viên -->
     <div class="container mt-4">
         <h2>Thêm mới sinh viên</h2>
         <form action="/luu-sinh-vien" method="post">
@@ -17,10 +15,15 @@
                 <label for="hoVaTen">Họ và tên:</label>
                 <input type="text" class="form-control" id="hoVaTen" name="hoVaTen">
             </div>
-            <!-- Các trường thông tin khác nếu cần -->
             <button type="submit" class="btn btn-primary">Thêm mới</button>
         </form>
+        <!-- Kiểm tra nếu có thông báo thành công thì hiển thị -->
+        <div th:if="${param.success}">
+            <div class="alert alert-success" role="alert">
+                Sinh viên đã được thêm thành công!
+            </div>
+        </div>
     </div>
-    <!-- Footer và các thành phần khác -->
 </body>
 </html>
+

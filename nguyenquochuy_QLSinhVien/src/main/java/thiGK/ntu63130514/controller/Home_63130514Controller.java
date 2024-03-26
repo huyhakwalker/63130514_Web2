@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -30,20 +31,33 @@ public class Home_63130514Controller {
         model.addAttribute("danhSachSinhVien", danhSachSinhVien);
         return "danh-sach-sinh-vien";
     }
-	
-	@GetMapping("/them-sinh-vien")
+
+    @GetMapping("/them-sinh-vien")
     public String hienThiFormThemSinhVien() {
         return "form-them-sinh-vien";
     }
 
-	@PostMapping("/sinhvien/timkiem")
-    public String searchSinhVienById(@RequestParam("maSinhVien") String maSinhVien, ModelMap model) {
-        SinhVien sinhVien = sinhvienService.findSinhVienById(maSinhVien);
-        if (sinhVien != null) {
-            model.addAttribute("ketQuaTimKiem", sinhVien);
-        } else {
-            model.addAttribute("thongBao", "Không tìm thấy sinh viên với mã: " + maSinhVien);
-        }
-        return "ketquatiemkiem";
+    @PostMapping("/luu-sinh-vien")
+    public String luuSinhVien(@RequestParam String maSoSV, @RequestParam String hoVaTen) {
+        SinhVien sinhVien = new SinhVien(maSoSV, hoVaTen);
+        sinhvienService.themSinhVien(sinhVien);
+        return "redirect:/them-sinh-vien?success=true";
     }
+
+	@GetMapping("/tim-kiem-sinh-vien")
+    public String showSearchForm() {
+        return "tim-kiem-sinh-vien";
+    }
+	
+	@GetMapping("/ket-qua-tim-kiem")
+	public String searchSinhVien(@RequestParam String maSoSV, ModelMap model) {
+	    SinhVien sinhVien = sinhvienService.findSinhVienById(maSoSV);
+	    if (sinhVien != null) {
+	        model.addAttribute("sinhVien", sinhVien);
+	    } else {
+	        model.addAttribute("errorMessage", "Không tìm thấy sinh viên");
+	    }
+	    return "ket-qua-tim-kiem";
+	}
+
 }

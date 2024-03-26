@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả tìm kiếm sinh viên</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Kết quả tìm kiếm sinh viên</h2>
+        <div th:if="${danhSachSinhVien != null and not #lists.isEmpty(danhSachSinhVien)}">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã số sinh viên</th>
+                        <th>Họ và tên</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="sinhVien : ${danhSachSinhVien}">
+                        <td th:text="${sinhVien.maSoSV}"></td>
+                        <td th:text="${sinhVien.hoVaTen}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${danhSachSinhVien == null or #lists.isEmpty(danhSachSinhVien)}">
+            <p>Không tìm thấy sinh viên nào.</p>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
