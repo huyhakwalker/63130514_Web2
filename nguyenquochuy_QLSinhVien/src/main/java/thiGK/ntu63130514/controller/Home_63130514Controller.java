@@ -36,8 +36,8 @@ public class Home_63130514Controller {
     }
 
     @PostMapping("/luu-sinh-vien")
-    public String luuSinhVien(@RequestParam String maSoSV, @RequestParam String hoVaTen, @RequestParam String diemTL) {
-        SinhVien sinhVien = new SinhVien(maSoSV, hoVaTen, diemTL);
+    public String luuSinhVien(@RequestParam String maSoSV, @RequestParam String hoVaTen) {
+        SinhVien sinhVien = new SinhVien(maSoSV, hoVaTen);
         sinhvienService.themSinhVien(sinhVien);
         return "redirect:/them-sinh-vien?success=true";
     }
