@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+    </style>
+</head>
+<body>
+    <!-- Navbar Bootstrap và các thành phần khác -->
+    <!-- Danh sách sinh viên -->
+    <div class="container mt-4">
+        <h2>Danh sách sinh viên</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Mã số sinh viên</th>
+                    <th>Họ và tên</th>
+                    <!-- Các cột thông tin khác nếu cần -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Sử dụng Thymeleaf để lặp qua danh sách sinh viên -->
+                <tr th:each="sinhVien : ${danhSachSinhVien}">
+                    <td th:text="${sinhVien.maSoSV}"></td>
+                    <td th:text="${sinhVien.hoVaTen}"></td>
+                    <!-- Các cột thông tin khác nếu cần -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Footer và các thành phần khác -->
+</body>
+</html>
