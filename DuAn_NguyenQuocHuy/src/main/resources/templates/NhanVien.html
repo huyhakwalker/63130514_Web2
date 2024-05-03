@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách nhân viên</title>
+</head>
+<body>
+    <h1>Danh sách nhân viên</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Mã</th>
+                <th>Tên</th>
+                <th>Số Điện Thoại</th>
+                <th>Lương</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="nhanVien : ${nhanVienList}">
+                <td th:text="${nhanVien.maNhanVien}"></td>
+                <td th:text="${nhanVien.tenNhanVien}"></td>
+                <td th:text="${nhanVien.soDienThoai}"></td>
+                <td th:text="${nhanVien.luong}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

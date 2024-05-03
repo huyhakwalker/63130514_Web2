@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách món ăn</title>
+</head>
+<body>
+    <h1>Danh sách món ăn</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên món ăn</th>
+                <th>Giá</th>
+                <th>Loại món ăn</th>
+                <th>Chỉnh sửa</th>
+                <th>Xóa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="monAn : ${monAnList}">
+                <td th:text="${monAn.mamonan}"></td>
+                <td th:text="${monAn.tenmonan}"></td>
+                <td th:text="${monAn.gia}"></td>
+                <!--<td th:text="${monAn.loaimonan.tenloaimonan}"></td>-->
+                <td><a th:href="@{/monan/edit/{id}(id=${monAn.mamonan})}">Chỉnh sửa</a></td>
+                <td><a th:href="@{/monan/delete/{id}(id=${monAn.mamonan})}">Xóa</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/monan/form">Thêm món ăn mới</a>
+</body>
+</html>
