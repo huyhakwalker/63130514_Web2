@@ -14,25 +14,25 @@ public class LoaiMonAn {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "maloaimonan")
-    private int maLoaiMonAn;
+    private int maloaimonan;
     
     @Column(name = "tenloaimonan")
-    private String tenLoaiMonAn;
+    private String tenloaimonan;
 
 	public int getMaLoaiMonAn() {
-		return maLoaiMonAn;
+		return maloaimonan;
 	}
 
-	public void setMaLoaiMonAn(int maLoaiMonAn) {
-		this.maLoaiMonAn = maLoaiMonAn;
+	public void setMaLoaiMonAn(int maloaimonan) {
+		this.maloaimonan = maloaimonan;
 	}
 
 	public String getTenLoaiMonAn() {
-		return tenLoaiMonAn;
+		return tenloaimonan;
 	}
 
-	public void setTenLoaiMonAn(String tenLoaiMonAn) {
-		this.tenLoaiMonAn = tenLoaiMonAn;
+	public void setTenLoaiMonAn(String tenloaimonan) {
+		this.tenloaimonan = tenloaimonan;
 	}
 
     

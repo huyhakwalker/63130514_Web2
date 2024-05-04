@@ -17,71 +17,71 @@ public class DonHang {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "madonhang")
-    private int maDonHang;
+    private int madonhang;
     
     @ManyToOne
     @JoinColumn(name = "makhachhang")
-    private KhachHang khachHang;
+    private KhachHang makhachhang;
     
     @ManyToOne
     @JoinColumn(name = "manhanvien")
-    private NhanVien nhanVien;
+    private NhanVien manhanvien;
     
     @Column(name = "ngaydat")
-    private Date ngayDat;
+    private Date ngaydat;
     
     @Column(name = "tongtien")
-    private int tongTien;
+    private int tongtien;
     
     @Column(name = "tinhtrang")
-    private int tinhTrang;
+    private int tinhtrang;
 
 	public int getMaDonHang() {
-		return maDonHang;
+		return madonhang;
 	}
 
-	public void setMaDonHang(int maDonHang) {
-		this.maDonHang = maDonHang;
+	public void setMaDonHang(int madonhang) {
+		this.madonhang = madonhang;
 	}
 
 	public KhachHang getKhachHang() {
-		return khachHang;
+		return makhachhang;
 	}
 
-	public void setKhachHang(KhachHang khachHang) {
-		this.khachHang = khachHang;
+	public void setKhachHang(KhachHang makhachhang) {
+		this.makhachhang = makhachhang;
 	}
 
 	public NhanVien getNhanVien() {
-		return nhanVien;
+		return manhanvien;
 	}
 
-	public void setNhanVien(NhanVien nhanVien) {
-		this.nhanVien = nhanVien;
+	public void setNhanVien(NhanVien manhanvien) {
+		this.manhanvien = manhanvien;
 	}
 
 	public Date getNgayDat() {
-		return ngayDat;
+		return ngaydat;
 	}
 
-	public void setNgayDat(Date ngayDat) {
-		this.ngayDat = ngayDat;
+	public void setNgayDat(Date ngaydat) {
+		this.ngaydat = ngaydat;
 	}
 
 	public int getTongTien() {
-		return tongTien;
+		return tongtien;
 	}
 
-	public void setTongTien(int tongTien) {
-		this.tongTien = tongTien;
+	public void setTongTien(int tongtien) {
+		this.tongtien = tongtien;
 	}
 
 	public int getTinhTrang() {
-		return tinhTrang;
+		return tinhtrang;
 	}
 
-	public void setTinhTrang(int tinhTrang) {
-		this.tinhTrang = tinhTrang;
+	public void setTinhTrang(int tinhtrang) {
+		this.tinhtrang = tinhtrang;
 	}
 
     
