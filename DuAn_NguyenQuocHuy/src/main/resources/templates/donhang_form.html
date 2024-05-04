@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form đơn hàng</title>
+</head>
+<body>
+    <h2>Form đơn hàng</h2>
+    <form th:action="@{/donhang/save}" th:object="${donHang}" method="post">
+        <input type="hidden" th:field="*{madonhang}">
+        <label>Mã khách hàng:</label><br>
+        <input type="text" th:field="*{makhachhang}"><br>
+        <label>Mã nhân viên:</label><br>
+        <input type="text" th:field="*{manhanvien}"><br>
+        <label>Ngày đặt:</label><br>
+        <input type="text" th:field="*{ngaydat}"><br>
+        <label>Tổng tiền:</label><br>
+        <input type="text" th:field="*{tongtien}"><br>
+        <label>Tình trạng:</label><br>
+        <input type="text" th:field="*{tinhtrang}"><br>
+        <button type="submit">Lưu</button>
+    </form>
+</body>
+</html>

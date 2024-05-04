@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách nhân viên</title>
+</head>
+<body>
+    <h2>Danh sách nhân viên</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Mã nhân viên</th>
+                <th>Tên nhân viên</th>
+                <th>Số điện thoại</th>
+                <th>Lương</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="nhanVien : ${nhanVienList}">
+                <td th:text="${nhanVien.manhanvien}"></td>
+                <td th:text="${nhanVien.tennhanvien}"></td>
+                <td th:text="${nhanVien.sodienthoai}"></td>
+                <td th:text="${nhanVien.luong}"></td>
+                <td>
+                    <a th:href="@{/nhanvien/edit/{id}(id=${nhanVien.manhanvien})}">Sửa</a>
+                    <a th:href="@{/nhanvien/delete/{id}(id=${nhanVien.manhanvien})}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">Xóa</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/nhanvien/form">Thêm nhân viên mới</a>
+</body>
+</html>

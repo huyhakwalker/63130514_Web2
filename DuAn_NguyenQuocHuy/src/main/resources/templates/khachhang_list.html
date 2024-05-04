@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách khách hàng</title>
+</head>
+<body>
+    <h2>Danh sách khách hàng</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Mã khách hàng</th>
+                <th>Tên khách hàng</th>
+                <th>Số điện thoại</th>
+                <th>Địa chỉ</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="khachHang : ${khachHangList}">
+                <td th:text="${khachHang.makhachhang}"></td>
+                <td th:text="${khachHang.tenkhachhang}"></td>
+                <td th:text="${khachHang.sodienthoai}"></td>
+                <td th:text="${khachHang.diachi}"></td>
+                <td>
+                    <a th:href="@{/khachhang/edit/{id}(id=${khachHang.makhachhang})}">Sửa</a>
+                    <a th:href="@{/khachhang/delete/{id}(id=${khachHang.makhachhang})}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">Xóa</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/khachhang/form">Thêm khách hàng mới</a>
+</body>
+</html>

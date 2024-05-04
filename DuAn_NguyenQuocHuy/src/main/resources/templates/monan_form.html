@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form món ăn</title>
+</head>
+<body>
+    <h2>Form món ăn</h2>
+    <form th:action="@{/monan/save}" th:object="${monAn}" method="post">
+        <input type="hidden" th:field="*{mamonan}">
+        <label>Tên món ăn:</label><br>
+        <input type="text" th:field="*{tenmonan}"><br>
+        <label>Giá:</label><br>
+        <input type="text" th:field="*{gia}"><br>
+        <button type="submit">Lưu</button>
+    </form>
+</body>
+</html>

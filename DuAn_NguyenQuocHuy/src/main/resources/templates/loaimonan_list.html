@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách loại món ăn</title>
+</head>
+<body>
+    <h2>Danh sách loại món ăn</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Mã loại món ăn</th>
+                <th>Tên loại món ăn</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="loaiMonAn : ${loaiMonAnList}">
+                <td th:text="${loaiMonAn.maloaimonan}"></td>
+                <td th:text="${loaiMonAn.tenloaimonan}"></td>
+                <td>
+                    <a th:href="@{/loaimonan/edit/{id}(id=${loaiMonAn.maloaimonan})}">Sửa</a>
+                    <a th:href="@{/loaimonan/delete/{id}(id=${loaiMonAn.maloaimonan})}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">Xóa</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/loaimonan/form">Thêm loại món ăn mới</a>
+</body>
+</html>

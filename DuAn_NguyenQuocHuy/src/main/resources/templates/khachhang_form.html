@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form khách hàng</title>
+</head>
+<body>
+    <h2>Form khách hàng</h2>
+    <form th:action="@{/khachhang/save}" th:object="${khachHang}" method="post">
+        <input type="hidden" th:field="*{makhachhang}">
+        <label>Tên khách hàng:</label><br>
+        <input type="text" th:field="*{tenkhachhang}"><br>
+        <label>Số điện thoại:</label><br>
+        <input type="text" th:field="*{sodienthoai}"><br>
+        <label>Địa chỉ:</label><br>
+        <input type="text" th:field="*{diachi}"><br>
+        <button type="submit">Lưu</button>
+    </form>
+</body>
+</html>

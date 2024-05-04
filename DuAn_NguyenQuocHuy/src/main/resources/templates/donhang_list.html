@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách đơn hàng</title>
+</head>
+<body>
+    <h2>Danh sách đơn hàng</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Mã khách hàng</th>
+                <th>Mã nhân viên</th>
+                <th>Ngày đặt</th>
+                <th>Tổng tiền</th>
+                <th>Tình trạng</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="donHang : ${donHangList}">
+                <td th:text="${donHang.madonhang}"></td>
+                <td th:text="${donHang.makhachhang}"></td>
+                <td th:text="${donHang.manhanvien}"></td>
+                <td th:text="${donHang.ngaydat}"></td>
+                <td th:text="${donHang.tongtien}"></td>
+                <td th:text="${donHang.tinhtrang}"></td>
+                <td>
+                    <a th:href="@{/donhang/edit/{id}(id=${donHang.madonhang})}">Sửa</a>
+                    <a th:href="@{/donhang/delete/{id}(id=${donHang.madonhang})}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">Xóa</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/donhang/form">Thêm đơn hàng mới</a>
+</body>
+</html>

@@ -9,14 +9,4 @@ public class HomeController {
 	public String home() {
 		return "home";
 	}
-	
-	@GetMapping("/dish_register")
-	public String dishRegister() {
-		return "dishRegister";
-	}
-	
-	@GetMapping("/available_dish")
-	public String getAllDish() {
-		return "dishList";
-	}
 }
