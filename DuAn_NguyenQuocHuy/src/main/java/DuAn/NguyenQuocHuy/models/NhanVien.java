@@ -14,39 +14,39 @@ public class NhanVien {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "manhanvien")
-    private int manhanvien;
+    private int maNhanVien;
     
     @Column(name = "tennhanvien")
-    private String tennhanvien;
+    private String tenNhanVien;
     
     @Column(name = "sodienthoai")
-    private String sodienthoai;
+    private String soDienThoai;
     
     @Column(name = "luong")
     private String luong;
 
 	public int getMaNhanVien() {
-		return manhanvien;
+		return maNhanVien;
 	}
 
-	public void setMaNhanVien(int manhanvien) {
-		this.manhanvien = manhanvien;
+	public void setMaNhanVien(int maNhanVien) {
+		this.maNhanVien = maNhanVien;
 	}
 
 	public String getTenNhanVien() {
-		return tennhanvien;
+		return tenNhanVien;
 	}
 
-	public void setTenNhanVien(String tennhanvien) {
-		this.tennhanvien = tennhanvien;
+	public void setTenNhanVien(String tenNhanVien) {
+		this.tenNhanVien = tenNhanVien;
 	}
 
 	public String getSoDienThoai() {
-		return sodienthoai;
+		return soDienThoai;
 	}
 
 	public void setSoDienThoai(String soDienThoai) {
-		this.sodienthoai = sodienthoai;
+		this.soDienThoai = soDienThoai;
 	}
 
 	public String getLuong() {

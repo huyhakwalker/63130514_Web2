@@ -11,38 +11,37 @@ import DuAn.NguyenQuocHuy.service.ChiTietDonHangService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/chitietdonhang")
 public class ChiTietDonHangController {
     @Autowired
     private ChiTietDonHangService chiTietDonHangService;
 
-    @GetMapping("/list")
+    @GetMapping("/chitietdonhang")
     public String getAllChiTietDonHangs(Model model) {
         List<ChiTietDonHang> chiTietDonHangList = chiTietDonHangService.getAllChiTietDonHangs();
         model.addAttribute("chiTietDonHangList", chiTietDonHangList);
         return "chitietdonhang_list";
     }
 
-    @GetMapping("/form")
+    @GetMapping("/chitietdonhang/form")
     public String showChiTietDonHangForm(Model model) {
         model.addAttribute("chiTietDonHang", new ChiTietDonHang());
         return "chitietdonhang_form";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/chitietdonhang/save")
     public String saveOrUpdateChiTietDonHang(@ModelAttribute("chiTietDonHang") ChiTietDonHang chiTietDonHang) {
         chiTietDonHangService.saveOrUpdateChiTietDonHang(chiTietDonHang);
         return "redirect:/chitietdonhang/list";
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("/chitietdonhang/edit/{id}")
     public String showEditForm(@PathVariable("id") int id, Model model) {
         ChiTietDonHang chiTietDonHang = chiTietDonHangService.getChiTietDonHangById(id);
         model.addAttribute("chiTietDonHang", chiTietDonHang);
         return "chitietdonhang_form";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/chitietdonhang/delete/{id}")
     public String deleteChiTietDonHang(@PathVariable("id") int id) {
         chiTietDonHangService.deleteChiTietDonHang(id);
         return "redirect:/chitietdonhang/list";

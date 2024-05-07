@@ -3,16 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Form món ăn</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <h2>Form món ăn</h2>
-    <form th:action="@{/monan/save}" th:object="${monAn}" method="post">
-        <input type="hidden" th:field="*{mamonan}">
-        <label>Tên món ăn:</label><br>
-        <input type="text" th:field="*{tenmonan}"><br>
-        <label>Giá:</label><br>
-        <input type="text" th:field="*{gia}"><br>
-        <button type="submit">Lưu</button>
-    </form>
+    <div class="container">
+        <h2 class="mt-5 mb-4 text-center">Form món ăn</h2>
+        <form th:action="@{/monan/save}" th:object="${monAn}" method="post">
+            <input type="hidden" th:field="*{maMonAn}">
+            <div class="mb-3">
+                <label for="tenMonAn" class="form-label">Tên món ăn:</label>
+                <input type="text" class="form-control" id="tenMonAn" th:field="*{tenMonAn}">
+            </div>
+            <div class="mb-3">
+                <label for="gia" class="form-label">Giá:</label>
+                <input type="text" class="form-control" id="gia" th:field="*{gia}">
+            </div>
+            <div class="mb-3">
+                <label for="loaiMonAn" class="form-label">Loại món ăn:</label>
+                <select class="form-select" id="loaiMonAn" th:field="*{loaiMonAn}">
+                    <option th:each="loaiMonAn : ${listLoaiMonAn}" th:value="${loaiMonAn.maLoaiMonAn}" th:text="${loaiMonAn.tenLoaiMonAn}"></option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Lưu</button>
+            <a th:href="@{/monan}" class="btn btn-secondary">Hủy</a>
+        </form>
+    </div>
 </body>
 </html>

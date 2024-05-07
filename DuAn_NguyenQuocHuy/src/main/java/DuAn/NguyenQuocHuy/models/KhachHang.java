@@ -14,48 +14,50 @@ public class KhachHang {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "makhachhang")
-    private int makhachhang;
+    private int maKhachHang;
     
     @Column(name = "tenkhachhang")
-    private String tenkhachhang;
+    private String tenKhachHang;
     
     @Column(name = "sodienthoai")
-    private String sodienthoai;
+    private String soDienThoai;
     
     @Column(name = "diachi")
-    private String diachi;
+    private String diaChi;
 
-	public int getmakhachhang() {
-		return makhachhang;
+	public int getMaKhachHang() {
+		return maKhachHang;
 	}
 
-	public void setmakhachhang(int makhachhang) {
-		this.makhachhang = makhachhang;
+	public void setMaKhachHang(int maKhachHang) {
+		this.maKhachHang = maKhachHang;
 	}
 
-	public String gettenkhachhang() {
-		return tenkhachhang;
+	public String getTenKhachHang() {
+		return tenKhachHang;
 	}
 
-	public void settenkhachhang(String tenkhachhang) {
-		this.tenkhachhang = tenkhachhang;
+	public void setTenKhachHang(String tenKhachHang) {
+		this.tenKhachHang = tenKhachHang;
 	}
 
-	public String getsodienthoai() {
-		return sodienthoai;
+	public String getSoDienThoai() {
+		return soDienThoai;
 	}
 
-	public void setsodienthoai(String sodienthoai) {
-		this.sodienthoai = sodienthoai;
+	public void setSoDienThoai(String soDienThoai) {
+		this.soDienThoai = soDienThoai;
 	}
 
-	public String getdiachi() {
-		return diachi;
+	public String getDiaChi() {
+		return diaChi;
 	}
 
-	public void setdiachi(String diachi) {
-		this.diachi = diachi;
+	public void setDiaChi(String diaChi) {
+		this.diaChi = diaChi;
 	}
 
+    
 }
+
 

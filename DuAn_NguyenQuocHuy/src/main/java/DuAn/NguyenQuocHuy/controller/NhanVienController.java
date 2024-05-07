@@ -9,38 +9,37 @@ import DuAn.NguyenQuocHuy.service.NhanVienService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/nhanvien")
 public class NhanVienController {
     @Autowired
     private NhanVienService nhanVienService;
 
-    @GetMapping("/list")
+    @GetMapping("/nhanvien")
     public String getAllNhanViens(Model model) {
         List<NhanVien> nhanVienList = nhanVienService.getAllNhanViens();
         model.addAttribute("nhanVienList", nhanVienList);
         return "nhanvien_list";
     }
 
-    @GetMapping("/form")
+    @GetMapping("/nhanvien/form")
     public String showNhanVienForm(Model model) {
         model.addAttribute("nhanVien", new NhanVien());
         return "nhanvien_form";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/nhanvien/save")
     public String saveOrUpdateNhanVien(@ModelAttribute("nhanVien") NhanVien nhanVien) {
         nhanVienService.saveOrUpdateNhanVien(nhanVien);
         return "redirect:/nhanvien/list";
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("/nhanvien/edit/{id}")
     public String showEditForm(@PathVariable("id") int id, Model model) {
         NhanVien nhanVien = nhanVienService.getNhanVienById(id);
         model.addAttribute("nhanVien", nhanVien);
         return "nhanvien_form";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/nhanvien/delete/{id}")
     public String deleteNhanVien(@PathVariable("id") int id) {
         nhanVienService.deleteNhanVien(id);
         return "redirect:/nhanvien/list";

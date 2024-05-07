@@ -14,27 +14,28 @@ public class LoaiMonAn {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "maloaimonan")
-    private int maloaimonan;
+    private int maLoaiMonAn;
     
     @Column(name = "tenloaimonan")
-    private String tenloaimonan;
+    private String tenLoaiMonAn;
 
 	public int getMaLoaiMonAn() {
-		return maloaimonan;
+		return maLoaiMonAn;
 	}
 
-	public void setMaLoaiMonAn(int maloaimonan) {
-		this.maloaimonan = maloaimonan;
+	public void setMaLoaiMonAn(int maLoaiMonAn) {
+		this.maLoaiMonAn = maLoaiMonAn;
 	}
 
 	public String getTenLoaiMonAn() {
-		return tenloaimonan;
+		return tenLoaiMonAn;
 	}
 
-	public void setTenLoaiMonAn(String tenloaimonan) {
-		this.tenloaimonan = tenloaimonan;
+	public void setTenLoaiMonAn(String tenLoaiMonAn) {
+		this.tenLoaiMonAn = tenLoaiMonAn;
 	}
-
+    
     
 }
+
 

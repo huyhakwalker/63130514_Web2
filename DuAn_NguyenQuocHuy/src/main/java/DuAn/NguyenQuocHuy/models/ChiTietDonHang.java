@@ -16,7 +16,7 @@ public class ChiTietDonHang {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "machitietdonhang")
-    private int machitietdonhang;
+    private int maChiTietDonHang;
     
     @ManyToOne
     @JoinColumn(name = "madonhang")
@@ -30,11 +30,11 @@ public class ChiTietDonHang {
     private int soLuong;
 
 	public int getMaChiTietDonHang() {
-		return machitietdonhang;
+		return maChiTietDonHang;
 	}
 
-	public void setMacChiTietDonHang(int machitietdonhang) {
-		this.machitietdonhang = machitietdonhang;
+	public void setMaChiTietDonHang(int maChiTietDonHang) {
+		this.maChiTietDonHang = maChiTietDonHang;
 	}
 
 	public DonHang getDonHang() {
@@ -63,4 +63,5 @@ public class ChiTietDonHang {
 
     
 }
+
 

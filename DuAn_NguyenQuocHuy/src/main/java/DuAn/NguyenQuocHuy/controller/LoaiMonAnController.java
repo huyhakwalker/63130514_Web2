@@ -11,38 +11,37 @@ import DuAn.NguyenQuocHuy.service.LoaiMonAnService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/loaimonan")
 public class LoaiMonAnController {
     @Autowired
     private LoaiMonAnService loaiMonAnService;
 
-    @GetMapping("/list")
+    @GetMapping("/loaimonan")
     public String getAllLoaiMonAns(Model model) {
         List<LoaiMonAn> loaiMonAnList = loaiMonAnService.getAllLoaiMonAns();
         model.addAttribute("loaiMonAnList", loaiMonAnList);
         return "loaimonan_list";
     }
 
-    @GetMapping("/form")
+    @GetMapping("/loaimonan/form")
     public String showLoaiMonAnForm(Model model) {
         model.addAttribute("loaiMonAn", new LoaiMonAn());
         return "loaimonan_form";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/loaimonan/save")
     public String saveOrUpdateLoaiMonAn(@ModelAttribute("loaiMonAn") LoaiMonAn loaiMonAn) {
         loaiMonAnService.saveOrUpdateLoaiMonAn(loaiMonAn);
         return "redirect:/loaimonan/list";
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("/loaimonan/edit/{id}")
     public String showEditForm(@PathVariable("id") int id, Model model) {
         LoaiMonAn loaiMonAn = loaiMonAnService.getLoaiMonAnById(id);
         model.addAttribute("loaiMonAn", loaiMonAn);
         return "loaimonan_form";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/loaimonan/delete/{id}")
     public String deleteLoaiMonAn(@PathVariable("id") int id) {
         loaiMonAnService.deleteLoaiMonAn(id);
         return "redirect:/loaimonan/list";

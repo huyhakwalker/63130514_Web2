@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,33 +16,34 @@ public class MonAn {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "mamonan")
-	private int mamonan;
+	private int maMonAn;
 	
 	
 	@Column(name = "tenmonan")
-	private String tenmonan;
+	private String tenMonAn;
 	
 	
 	@Column(name = "gia")
 	private int gia;
 	
-	@Column(name = "loaimonan")
-	private int loaimonan;
+	@ManyToOne
+    @JoinColumn(name = "loaimonan")
+    private LoaiMonAn loaiMonAn;
 
-	public int getMamonan() {
-		return mamonan;
+	public int getMaMonAn() {
+		return maMonAn;
 	}
 
-	public void setMamonan(int mamonan) {
-		this.mamonan = mamonan;
+	public void setMaMonAn(int maMonAn) {
+		this.maMonAn = maMonAn;
 	}
 
-	public String getTenmonan() {
-		return tenmonan;
+	public String getTenMonAn() {
+		return tenMonAn;
 	}
 
-	public void setTenmonan(String tenmonan) {
-		this.tenmonan = tenmonan;
+	public void setTenMonAn(String tenMonAn) {
+		this.tenMonAn = tenMonAn;
 	}
 
 	public int getGia() {
@@ -51,13 +54,12 @@ public class MonAn {
 		this.gia = gia;
 	}
 
-	public int getLoaimonan() {
-		return loaimonan;
+	public LoaiMonAn getLoaiMonAn() {
+		return loaiMonAn;
 	}
 
-	public void setLoaimonan(int loaimonan) {
-		this.loaimonan = loaimonan;
+	public void setLoaiMonAn(LoaiMonAn loaiMonAn) {
+		this.loaiMonAn = loaiMonAn;
 	}
 
-	
 }

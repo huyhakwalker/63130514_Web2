@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Form đơn hàng</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Đơn hàng Form</title>
 </head>
 <body>
-    <h2>Form đơn hàng</h2>
-    <form th:action="@{/donhang/save}" th:object="${donHang}" method="post">
-        <input type="hidden" th:field="*{madonhang}">
-        <label>Mã khách hàng:</label><br>
-        <input type="text" th:field="*{makhachhang}"><br>
-        <label>Mã nhân viên:</label><br>
-        <input type="text" th:field="*{manhanvien}"><br>
-        <label>Ngày đặt:</label><br>
-        <input type="text" th:field="*{ngaydat}"><br>
-        <label>Tổng tiền:</label><br>
-        <input type="text" th:field="*{tongtien}"><br>
-        <label>Tình trạng:</label><br>
-        <input type="text" th:field="*{tinhtrang}"><br>
-        <button type="submit">Lưu</button>
-    </form>
+    <div class="container">
+        <h2 class="mt-5 mb-4 text-center">Đơn hàng Form</h2>
+        <form th:action="@{/donhang/save}" th:object="${donHang}" method="post">
+            <input type="hidden" th:field="*{maDonHang}" />
+            <div class="mb-3">
+                <label for="khachHang" class="form-label">Mã khách hàng:</label>
+                <input type="text" class="form-control" id="khachHang" th:field="*{khachHang}" />
+            </div>
+            <div class="mb-3">
+                <label for="nhanVien" class="form-label">Mã nhân viên:</label>
+                <input type="text" class="form-control" id="nhanVien" th:field="*{nhanVien}" />
+            </div>
+            <div class="mb-3">
+                <label for="ngayDat" class="form-label">Ngày đặt:</label>
+                <input type="date" class="form-control" id="ngayDat" th:field="*{ngayDat}" />
+            </div>
+            <div class="mb-3">
+                <label for="tongTien" class="form-label">Tổng tiền:</label>
+                <input type="text" class="form-control" id="tongTien" th:field="*{tongTien}" />
+            </div>
+            <div class="mb-3">
+                <label for="tinhTrang" class="form-label">Tình trạng:</label>
+                <select class="form-select" id="tinhTrang" th:field="*{tinhTrang}">
+                    <option value="0">Chưa được duyệt</option>
+                    <option value="1">Đã được duyệt</option>
+                    <option value="2">Đã hủy</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
