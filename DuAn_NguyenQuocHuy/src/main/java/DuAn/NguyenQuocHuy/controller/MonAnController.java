@@ -31,7 +31,7 @@ public class MonAnController {
     @PostMapping("/monan/save")
     public String saveOrUpdateMonAn(@ModelAttribute("monAn") MonAn monAn) {
         monAnService.saveOrUpdateMonAn(monAn);
-        return "redirect:/monan/list";
+        return "redirect:/monan";
     }
 
     @GetMapping("/monan/edit/{id}")
@@ -44,7 +44,7 @@ public class MonAnController {
     @GetMapping("/monan/delete/{id}")
     public String deleteMonAn(@PathVariable("id") int id) {
         monAnService.deleteMonAn(id);
-        return "redirect:/monan/list";
+        return "redirect:/monan";
     }
 }
 

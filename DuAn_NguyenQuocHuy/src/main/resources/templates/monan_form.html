@@ -20,13 +20,12 @@
             </div>
             <div class="mb-3">
                 <label for="loaiMonAn" class="form-label">Loại món ăn:</label>
-                <select class="form-select" id="loaiMonAn" th:field="*{loaiMonAn}">
-                    <option th:each="loaiMonAn : ${listLoaiMonAn}" th:value="${loaiMonAn.maLoaiMonAn}" th:text="${loaiMonAn.tenLoaiMonAn}"></option>
-                </select>
+                <input type="text" class="form-control" id="loaiMonAn" th:field="*{loaiMonAn}">
             </div>
             <button type="submit" class="btn btn-primary">Lưu</button>
             <a th:href="@{/monan}" class="btn btn-secondary">Hủy</a>
         </form>
+        <a href="/monan" class="button">Quay lại danh sách</a>
     </div>
 </body>
 </html>

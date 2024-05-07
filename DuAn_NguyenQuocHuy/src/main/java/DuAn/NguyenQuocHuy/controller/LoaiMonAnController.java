@@ -31,7 +31,7 @@ public class LoaiMonAnController {
     @PostMapping("/loaimonan/save")
     public String saveOrUpdateLoaiMonAn(@ModelAttribute("loaiMonAn") LoaiMonAn loaiMonAn) {
         loaiMonAnService.saveOrUpdateLoaiMonAn(loaiMonAn);
-        return "redirect:/loaimonan/list";
+        return "redirect:/loaimonan";
     }
 
     @GetMapping("/loaimonan/edit/{id}")
@@ -44,7 +44,7 @@ public class LoaiMonAnController {
     @GetMapping("/loaimonan/delete/{id}")
     public String deleteLoaiMonAn(@PathVariable("id") int id) {
         loaiMonAnService.deleteLoaiMonAn(id);
-        return "redirect:/loaimonan/list";
+        return "redirect:/loaimonan";
     }
 }
 

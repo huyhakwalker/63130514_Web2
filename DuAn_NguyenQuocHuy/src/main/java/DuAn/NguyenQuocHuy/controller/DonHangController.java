@@ -36,7 +36,7 @@ public class DonHangController {
     @PostMapping("/donhang/save")
     public String saveOrUpdateDonHang(@ModelAttribute("donHang") DonHang donHang) {
         donHangService.saveOrUpdateDonHang(donHang);
-        return "redirect:/donhang/list";
+        return "redirect:/donhang";
     }
 
     @GetMapping("/donhang/edit/{id}")
@@ -49,7 +49,7 @@ public class DonHangController {
     @GetMapping("/donhang/delete/{id}")
     public String deleteDonHang(@PathVariable("id") int id) {
         donHangService.deleteDonHang(id);
-        return "redirect:/donhang/list";
+        return "redirect:/donhang";
     }
     @GetMapping("/donhang/detail/{id}")
     public String showDonHangDetail(@PathVariable("id") int id, Model model) {

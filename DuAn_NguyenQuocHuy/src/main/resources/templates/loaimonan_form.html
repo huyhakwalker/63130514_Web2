@@ -9,14 +9,15 @@
     <div class="container">
         <h2 class="mt-5 mb-4 text-center">Form loại món ăn</h2>
         <form th:action="@{/loaimonan/save}" th:object="${loaiMonAn}" method="post">
-            <input type="hidden" th:field="*{maloaimonan}">
+            <input type="hidden" th:field="*{maLoaiMonAn}">
             <div class="mb-3">
                 <label for="tenLoaiMonAn" class="form-label">Tên loại món ăn:</label>
-                <input type="text" class="form-control" id="tenLoaiMonAn" th:field="*{tenloaimonan}">
+                <input type="text" class="form-control" id="tenLoaiMonAn" th:field="*{tenLoaiMonAn}">
             </div>
             <button type="submit" class="btn btn-primary">Lưu</button>
             <a th:href="@{/loaimonan}" class="btn btn-secondary">Hủy</a>
         </form>
+        <a href="/loaimonan" class="button">Quay lại danh sách</a>
     </div>
 </body>
 </html>

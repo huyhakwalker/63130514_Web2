@@ -23,15 +23,16 @@ public class KhachHangController {
     }
 
     @GetMapping("/khachhang/form")
-    public String showKhachHangForm(Model model) {
-        model.addAttribute("khachHang", new KhachHang());
+    public String addKhachHangForm(Model model) {
+        KhachHang khachHang = new KhachHang();
+        model.addAttribute("khachHang", khachHang);
         return "khachhang_form";
     }
 
     @PostMapping("/khachhang/save")
     public String saveOrUpdateKhachHang(@ModelAttribute("khachHang") KhachHang khachHang) {
         khachHangService.saveOrUpdateKhachHang(khachHang);
-        return "redirect:/khachhang/list";
+        return "redirect:/khachhang";
     }
 
     @GetMapping("/khachhang/edit/{id}")
@@ -44,6 +45,6 @@ public class KhachHangController {
     @GetMapping("/khachhang/delete/{id}")
     public String deleteKhachHang(@PathVariable("id") int id) {
         khachHangService.deleteKhachHang(id);
-        return "redirect:/khachhang/list";
+        return "redirect:/khachhang";
     }
 }

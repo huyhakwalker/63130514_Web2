@@ -29,7 +29,7 @@ public class NhanVienController {
     @PostMapping("/nhanvien/save")
     public String saveOrUpdateNhanVien(@ModelAttribute("nhanVien") NhanVien nhanVien) {
         nhanVienService.saveOrUpdateNhanVien(nhanVien);
-        return "redirect:/nhanvien/list";
+        return "redirect:/nhanvien";
     }
 
     @GetMapping("/nhanvien/edit/{id}")
@@ -42,7 +42,7 @@ public class NhanVienController {
     @GetMapping("/nhanvien/delete/{id}")
     public String deleteNhanVien(@PathVariable("id") int id) {
         nhanVienService.deleteNhanVien(id);
-        return "redirect:/nhanvien/list";
+        return "redirect:/nhanvien";
     }
 }
 
