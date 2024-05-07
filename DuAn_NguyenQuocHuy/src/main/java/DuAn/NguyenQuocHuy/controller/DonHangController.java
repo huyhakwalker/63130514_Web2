@@ -47,5 +47,3 @@ public class DonHangController {
         return "redirect:/donhang/list";
     }
 }
-
-

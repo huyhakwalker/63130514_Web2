@@ -61,6 +61,7 @@
                 </td>
                 <td>
                     <a th:href="@{/donhang/edit/{id}(id=${donHang.maDonHang})}">Sửa</a>
+                    <a th:href="@{/donhang/detail/{id}(id=${donHang.maDonHang})}">Chi tiết</a>
                     <a th:href="@{/donhang/delete/{id}(id=${donHang.maDonHang})}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">Xóa</a>
                 </td>
             </tr>

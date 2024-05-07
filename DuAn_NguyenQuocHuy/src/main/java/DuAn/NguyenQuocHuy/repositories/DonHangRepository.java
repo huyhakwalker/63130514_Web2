@@ -8,4 +8,3 @@ import DuAn.NguyenQuocHuy.models.DonHang;
 @Repository
 public interface DonHangRepository extends JpaRepository<DonHang, Integer> {
 }
-
