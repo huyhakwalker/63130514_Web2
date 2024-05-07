@@ -1,10 +1,12 @@
 package DuAn.NguyenQuocHuy.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import DuAn.NguyenQuocHuy.service.ChiTietDonHangService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import DuAn.NguyenQuocHuy.models.ChiTietDonHang;
 import DuAn.NguyenQuocHuy.models.DonHang;
 import DuAn.NguyenQuocHuy.service.DonHangService;
 
@@ -14,6 +16,9 @@ import java.util.List;
 public class DonHangController {
     @Autowired
     private DonHangService donHangService;
+    
+    @Autowired
+    private ChiTietDonHangService chiTietDonHangService;
 
     @GetMapping("/donhang")
     public String getAllDonHangs(Model model) {
@@ -46,4 +51,19 @@ public class DonHangController {
         donHangService.deleteDonHang(id);
         return "redirect:/donhang/list";
     }
+    @GetMapping("/donhang/detail/{id}")
+    public String showDonHangDetail(@PathVariable("id") int id, Model model) {
+        // Lấy thông tin đơn hàng từ bảng DonHang
+        DonHang donHang = donHangService.getDonHangById(id);
+        model.addAttribute("donHang", donHang);
+        
+        // Lấy chi tiết đơn hàng từ bảng ChiTietDonHang
+        List<ChiTietDonHang> chiTietDonHangList = chiTietDonHangService.getChiTietDonHangByMaDonHang(id);
+        model.addAttribute("chiTietDonHangList", chiTietDonHangList);
+        
+        return "donhang_detail";
+    }
+
+
 }
+
