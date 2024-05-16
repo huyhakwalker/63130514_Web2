@@ -50,7 +50,7 @@
                 <td th:text="${donHang.maDonHang}"></td>
                 <td th:text="${donHang.khachHang.tenKhachHang}"></td>
                 <td th:text="${donHang.nhanVien.tenNhanVien}"></td>
-                <td th:text="${donHang.ngayDat}"></td>
+                <td th:text="${#dates.format(donHang.ngayDat, 'yyyy-MM-dd')}"></td>
                 <td th:text="${donHang.tongTien}"></td>
                 <td>
                     <span th:switch="${donHang.tinhTrang}">

@@ -29,7 +29,8 @@ public class DonHangController {
 
     @GetMapping("/donhang/form")
     public String showDonHangForm(Model model) {
-        model.addAttribute("donHang", new DonHang());
+    	DonHang donHang = new DonHang();
+        model.addAttribute("donHang", donHang);
         return "donhang_form";
     }
 
@@ -53,17 +54,11 @@ public class DonHangController {
     }
     @GetMapping("/donhang/detail/{id}")
     public String showDonHangDetail(@PathVariable("id") int id, Model model) {
-        // Lấy thông tin đơn hàng từ bảng DonHang
         DonHang donHang = donHangService.getDonHangById(id);
         model.addAttribute("donHang", donHang);
-        
-        // Lấy chi tiết đơn hàng từ bảng ChiTietDonHang
         List<ChiTietDonHang> chiTietDonHangList = chiTietDonHangService.getChiTietDonHangByMaDonHang(id);
         model.addAttribute("chiTietDonHangList", chiTietDonHangList);
-        
         return "donhang_detail";
     }
-
-
 }
 

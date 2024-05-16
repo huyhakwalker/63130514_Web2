@@ -33,6 +33,10 @@
 	</nav>
 <div class="container"> <!-- Centering container -->
     <h2 class="text-center">Danh sách khách hàng</h2>
+    <form action="#" th:action="@{/khachhang}" method="get">
+        <input type="text" name="name" placeholder="Nhập tên khách hàng" th:value="${searchName}"/>
+        <button type="submit">Tìm Kiếm</button>
+    </form>
     <table class="table table-bordered mx-auto"> <!-- Added mx-auto for centering -->
         <thead>
             <tr>
@@ -56,6 +60,20 @@
             </tr>
         </tbody>
     </table>
+    <br>
+    <div>
+        <span th:if="${currentPage > 0}">
+            <a th:href="@{/khachhang(name=${searchName}, page=${currentPage - 1}, size=${size})}">&laquo; Trang trước</a>
+        </span>
+        <span th:each="i : ${#numbers.sequence(0, totalPages - 1)}">
+            <a th:href="@{/khachhang(name=${searchName}, page=${i}, size=${size})}" 
+               th:text="${i + 1}" 
+               th:class="${currentPage == i} ? 'current' : ''">1</a>
+        </span>
+        <span th:if="${currentPage < totalPages - 1}">
+            <a th:href="@{/khachhang(name=${searchName}, page=${currentPage + 1}, size=${size})}">Trang sau &raquo;</a>
+        </span>
+    </div>
     <a href="/khachhang/form">Thêm khách hàng mới</a>
 </div>
 </body>

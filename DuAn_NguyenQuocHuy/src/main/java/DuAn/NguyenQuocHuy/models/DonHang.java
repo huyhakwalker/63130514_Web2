@@ -1,5 +1,6 @@
 package DuAn.NguyenQuocHuy.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,6 +29,7 @@ public class DonHang {
     private NhanVien nhanVien;
     
     @Column(name = "ngaydat")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date ngayDat;
     
     @Column(name = "tongtien")

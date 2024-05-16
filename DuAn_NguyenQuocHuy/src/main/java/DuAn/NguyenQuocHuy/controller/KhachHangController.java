@@ -1,6 +1,7 @@
 package DuAn.NguyenQuocHuy.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -8,18 +9,23 @@ import org.springframework.web.bind.annotation.*;
 import DuAn.NguyenQuocHuy.models.KhachHang;
 import DuAn.NguyenQuocHuy.service.KhachHangService;
 
-import java.util.List;
-
 @Controller
 public class KhachHangController {
     @Autowired
     private KhachHangService khachHangService;
 
     @GetMapping("/khachhang")
-    public String getAllKhachHangs(Model model) {
-        List<KhachHang> khachHangList = khachHangService.getAllKhachHangs();
-        model.addAttribute("khachhangList", khachHangList);
-        return "khachhang_list";
+    public String listAndSearchKhachHang(@RequestParam(name = "name", required = false, defaultValue = "") String name,
+            @RequestParam(name = "page", required = false, defaultValue = "0") int page,
+            @RequestParam(name = "size", required = false, defaultValue = "5") int size,
+            Model model) 
+    {
+        Page<KhachHang> khachHangPage = khachHangService.searchByTenKhachHang(name, page, size);
+        model.addAttribute("khachhangList", khachHangPage.getContent());
+        model.addAttribute("currentPage", page);
+		model.addAttribute("totalPages", khachHangPage.getTotalPages());
+		model.addAttribute("searchName", name);
+		return "khachhang_list";
     }
 
     @GetMapping("/khachhang/form")
