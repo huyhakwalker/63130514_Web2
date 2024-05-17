@@ -33,6 +33,10 @@
 </nav>
 <div class="container"> <!-- Centering container -->
     <h2 class="text-center">Danh sách nhân viên</h2>
+    <form action="#" th:action="@{/nhanvien}" method="get">
+        <input type="text" name="name" placeholder="Nhập tên nhân viên" th:value="${searchName}"/>
+        <button type="submit">Tìm Kiếm</button>
+    </form>
     <table class="table table-bordered mx-auto"> <!-- Added mx-auto for centering -->
         <thead>
             <tr>
@@ -56,6 +60,28 @@
             </tr>
         </tbody>
     </table>
+    <br>
+    <div class="d-flex justify-content-center">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled'">
+                    <a class="page-link" th:href="@{/nhanvien(name=${searchName}, page=0, size=${size})}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <span th:each="i : ${#numbers.sequence(0, totalPages - 1)}">
+                    <li class="page-item" th:classappend="${currentPage == i} ? 'active'">
+                        <a class="page-link" th:href="@{/nhanvien(name=${searchName}, page=${i}, size=${size})}" th:text="${i + 1}"></a>
+                    </li>
+                </span>
+                <li class="page-item" th:classappend="${currentPage == totalPages - 1} ? 'disabled'">
+                    <a class="page-link" th:href="@{/nhanvien(name=${searchName}, page=${totalPages - 1}, size=${size})}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
     <a href="/nhanvien/form">Thêm nhân viên mới</a>
 </div>
 </body>

@@ -1,6 +1,9 @@
 package DuAn.NguyenQuocHuy.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import DuAn.NguyenQuocHuy.models.NhanVien;
@@ -27,6 +30,14 @@ public class NhanVienService {
 
     public void deleteNhanVien(int id) {
         nhanVienRepository.deleteById(id);
+    }
+    public List<NhanVien> searchByTenNhanVien(String tenNhanVien) {
+        return nhanVienRepository.findByTenNhanVienContaining(tenNhanVien);
+    }
+
+    public Page<NhanVien> searchByTenNhanVien(String tenNhanVien, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return nhanVienRepository.findByTenNhanVienContaining(tenNhanVien, pageable);
     }
 }
 

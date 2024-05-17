@@ -1,6 +1,9 @@
 package DuAn.NguyenQuocHuy.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import DuAn.NguyenQuocHuy.models.MonAn;
@@ -27,5 +30,13 @@ public class MonAnService {
 
     public void deleteMonAn(int id) {
         monAnRepository.deleteById(id);
+    }
+    public List<MonAn> searchByTenMonAn(String tenMonAn) {
+        return monAnRepository.findByTenMonAnContaining(tenMonAn);
+    }
+    
+    public Page<MonAn> searchByTenMonAn(String tenMonAn, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return monAnRepository.findByTenMonAnContaining(tenMonAn, pageable);
     }
 }

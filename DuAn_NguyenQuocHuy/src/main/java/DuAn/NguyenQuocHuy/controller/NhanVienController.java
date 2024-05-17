@@ -1,12 +1,12 @@
 package DuAn.NguyenQuocHuy.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import DuAn.NguyenQuocHuy.models.NhanVien;
 import DuAn.NguyenQuocHuy.service.NhanVienService;
-import java.util.List;
 
 @Controller
 public class NhanVienController {
@@ -14,9 +14,17 @@ public class NhanVienController {
     private NhanVienService nhanVienService;
 
     @GetMapping("/nhanvien")
-    public String getAllNhanViens(Model model) {
-        List<NhanVien> nhanVienList = nhanVienService.getAllNhanViens();
-        model.addAttribute("nhanVienList", nhanVienList);
+    public String listAndSearchNhanVien(
+            @RequestParam(name = "name", required = false, defaultValue = "") String name,
+            @RequestParam(name = "page", required = false, defaultValue = "0") int page,
+            @RequestParam(name = "size", required = false, defaultValue = "5") int size,
+            Model model) 
+    {
+        Page<NhanVien> nhanVienPage = nhanVienService.searchByTenNhanVien(name, page, size);
+        model.addAttribute("nhanVienList", nhanVienPage.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", nhanVienPage.getTotalPages());
+        model.addAttribute("searchName", name);
         return "nhanvien_list";
     }
 

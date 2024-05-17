@@ -1,6 +1,7 @@
 package DuAn.NguyenQuocHuy.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -8,19 +9,26 @@ import org.springframework.web.bind.annotation.*;
 import DuAn.NguyenQuocHuy.models.MonAn;
 import DuAn.NguyenQuocHuy.service.MonAnService;
 
-import java.util.List;
-
 @Controller
 public class MonAnController {
     @Autowired
     private MonAnService monAnService;
 
     @GetMapping("/monan")
-    public String getAllMonAns(Model model) {
-        List<MonAn> monAnList = monAnService.getAllMonAns();
-        model.addAttribute("monAnList", monAnList);
-        return "monan_list";
+    public String listAndSearchMonAn(
+    		@RequestParam(name = "name", required = false, defaultValue = "") String name,
+            @RequestParam(name = "page", required = false, defaultValue = "0") int page,
+            @RequestParam(name = "size", required = false, defaultValue = "5") int size,
+            Model model) 
+    {
+        Page<MonAn> monAnPage = monAnService.searchByTenMonAn(name, page, size);
+        model.addAttribute("monAnList", monAnPage.getContent());
+        model.addAttribute("currentPage", page);
+		model.addAttribute("totalPages", monAnPage.getTotalPages());
+		model.addAttribute("searchName", name);
+		return "monan_list";
     }
+
 
     @GetMapping("/monan/form")
     public String showMonAnForm(Model model) {

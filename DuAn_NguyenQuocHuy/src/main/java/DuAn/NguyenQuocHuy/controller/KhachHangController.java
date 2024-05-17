@@ -15,13 +15,14 @@ public class KhachHangController {
     private KhachHangService khachHangService;
 
     @GetMapping("/khachhang")
-    public String listAndSearchKhachHang(@RequestParam(name = "name", required = false, defaultValue = "") String name,
+    public String listAndSearchKhachHang(
+    		@RequestParam(name = "name", required = false, defaultValue = "") String name,
             @RequestParam(name = "page", required = false, defaultValue = "0") int page,
             @RequestParam(name = "size", required = false, defaultValue = "5") int size,
             Model model) 
     {
         Page<KhachHang> khachHangPage = khachHangService.searchByTenKhachHang(name, page, size);
-        model.addAttribute("khachhangList", khachHangPage.getContent());
+        model.addAttribute("khachHangList", khachHangPage.getContent());
         model.addAttribute("currentPage", page);
 		model.addAttribute("totalPages", khachHangPage.getTotalPages());
 		model.addAttribute("searchName", name);
